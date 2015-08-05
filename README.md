@@ -22,5 +22,12 @@ If you found a repeatable bug, and troubleshooting tips didn't help, then be sur
 
 ## Changelog ##
 
+### Master - **/08/2015
+* Dev - Usage of correct Adminhtml controller methods.
+        See [this stackexchange](http://magento.stackexchange.com/a/73649/28266) question for more information.
+
+### 1.2.5 - 29/07/2015
+* Bug - Fixed getting and setting payment methods.
+
 ### 1.2.2 - 03/06/2015
 * Dev - Initial commit to GitHub.
