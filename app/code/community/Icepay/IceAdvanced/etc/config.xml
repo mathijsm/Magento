@@ -164,4 +164,16 @@
             </resources>
         </acl>
     </adminhtml>
+    
+    <admin>
+        <routers>
+            <iceadvanced>
+                <use>admin</use>
+                <args>
+                    <module>Icepay_IceAdvanced</module>
+                    <frontName>icepayadvanced</frontName>
+                </args>
+            </iceadvanced>
+        </routers>
+    </admin>
 </config>
