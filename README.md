@@ -22,9 +22,10 @@ If you found a repeatable bug, and troubleshooting tips didn't help, then be sur
 
 ## Changelog ##
 
-### Master - **/08/2015
-* Dev - Usage of correct Adminhtml controller methods.
-        See [this stackexchange](http://magento.stackexchange.com/a/73649/28266) question for more information.
+### 1.2.6 - 07/08/2015
+* Compatiblity with CE 1.9.2.1.
+* Paymentmethods now behind Admin permissions.
+* Replaced old logo's.
 
 ### 1.2.5 - 29/07/2015
 * Bug - Fixed getting and setting payment methods.
