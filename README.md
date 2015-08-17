@@ -4,9 +4,7 @@
 
 All online payment methods for your Magento webshop in one go! Make it possible for customers to pay in your Magento webshop. Download the Magento Advanced webshop module [here](https://github.com/icepay/Magento/releases) and gain access to the most popular national and international online payment methods.
 
-You also can find ICEPAY on [Magento Connect](http://www.magentocommerce.com/magento-connect/icepay-payment-advanced.html). Download the Magento Advanced webshop module as a Magento extension and get started within minutes. Upgrades for ICEPAY are done more easily and faster via Magento Connect.
-
-The master branche may not be stable. See the [release list](https://github.com/icepay/Magento/releases) for stable version of this module.
+The master branche may not be stable. See the [release list](https://github.com/icepay/Magento/releases) for stable version of this module. Use [Magento Connect](http://www.magentocommerce.com/magento-connect/icepay-payment-advanced.html) for mainstream updates.
 
 ## Contributing ##
 
@@ -22,13 +20,9 @@ If you found a repeatable bug, and troubleshooting tips didn't help, then be sur
 
 ## Changelog ##
 
-### 1.2.6 - 07/08/2015
-* Compatiblity with CE 1.9.2.1.
-* Paymentmethods now behind Admin permissions.
-* Replaced old logo's.
-
-### 1.2.5 - 29/07/2015
-* Bug - Fixed getting and setting payment methods.
-
-### 1.2.2 - 03/06/2015
-* Dev - Initial commit to GitHub.
+Version      | Release date   | Changes
+------------ | -------------- | ------------------------
+1.2.7        | 17/08/2015     | Soap requests now have intermediate certificates included from Thawte<br>Removal of extra check to allow the usage of cloud services of ICEPAY.
+1.2.6        | 07/08/2015     | Compatiblity with CE 1.9.2.1
+1.2.5        | 29/07/2015     | Fixed getting and setting payment methods
+1.2.2        | 03/06/2015     | Initial commit to GitHub.
