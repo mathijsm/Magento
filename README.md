@@ -22,5 +22,5 @@ If you found a repeatable bug, and troubleshooting tips didn't help, then be sur
 
 Version      | Release date   | Changes
 ------------ | -------------- | ------------------------
-1.2.9        | 18/08/2015     | Compatiblity with CE 1.9.2.1 and their [SUPEE-6285](http://merch.docs.magento.com/ce/user_guide/Magento_Community_Edition_User_Guide.html#magento/patch-releases-2015.html) patch.<br>Removed IPCheck for compatibility with the ICEPAY cloud.
+1.2.9        | 18/08/2015     | Compatiblity with CE 1.9.2.1 and the [SUPEE-6285](http://merch.docs.magento.com/ce/user_guide/Magento_Community_Edition_User_Guide.html#magento/patch-releases-2015.html) patch.<br>Removed IPCheck for compatibility with the ICEPAY cloud.
 1.2.2        | 13/11/2013     | Initial commit to GitHub on 03/06/2015.
