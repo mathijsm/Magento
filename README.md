@@ -22,6 +22,7 @@ If you found a repeatable bug, and troubleshooting tips didn't help, then be sur
 
 Version      | Release date   | Changes
 ------------ | -------------- | ------------------------
+1.2.9        | 18/08/2015     | Now validating SSL on Server level
 1.2.8        | 17/08/2015     | Extending the intermediate and root chain certificates
 1.2.7        | 17/08/2015     | Soap requests now have intermediate certificates from Thawte<br>Removal extra check to allow usage of cloud services of ICEPAY
 1.2.6        | 07/08/2015     | Compatiblity with CE 1.9.2.1
