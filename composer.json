@@ -1,0 +1,15 @@
+{
+    "name"             : "icepay/iceadvanced",
+    "description"      : "IcePay advanced payment module",
+    "type"             : "magento-module",
+    "license"          : "proprietary",
+    "authors"          : [
+        {
+            "name" : "IcePay",
+            "email": "info@icepay.com"
+        }
+    ],
+    "require"          : {
+        "magento-hackathon/magento-composer-installer" : "*"
+    }
+}
