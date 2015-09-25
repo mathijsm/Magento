@@ -11,4 +11,4 @@ app/locale/fr_FR/* app/locale/fr_FR/
 app/locale/it_IT/* app/locale/it_IT/
 app/locale/nl_NL/* app/locale/nl_NL/
 skin/adminhtml/default/default/icepay skin/adminhtml/default/default/icepay
-skin/frontend/base/default/icepay skin/frontend/base/default/icepay
+skin/frontend/base/default/images/icepay skin/frontend/base/default/images/icepay
