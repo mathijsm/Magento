@@ -190,7 +190,7 @@ class Icepay_IceAdvanced_Model_Checkout_Standard extends Mage_Payment_Model_Meth
 
     public function getOrderPlaceRedirectUrl()
     {
-        return Mage::getUrl('iceadvanced/processing/pay');
+        return Mage::getUrl('iceadvanced/processing/pay', array('_secure' => true));
     }
 
     public function setCode($str)

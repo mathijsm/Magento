@@ -52,7 +52,7 @@
             </custom_quote_process>
         </events>
     </frontend>
-    
+
     <global>
         <models>
             <iceadvanced>
@@ -130,6 +130,10 @@
                 </observers>
             </sales_order_payment_place_end>
         </events>
+
+        <secure_url>
+            <icepayadvanced_processing_pay>/icepayadvanced/processing/pay</icepayadvanced_processing_pay>
+        </secure_url>
     </global>
 
     <adminhtml>
@@ -163,7 +167,7 @@
             </resources>
         </acl>
     </adminhtml>
-    
+
     <admin>
         <routers>
             <iceadvanced>
