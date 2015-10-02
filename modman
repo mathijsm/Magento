@@ -1,8 +1,8 @@
 app/code/community/Icepay/* app/code/community/Icepay/
-app/code/design/adminhtml/default/default/layout/* app/code/design/adminhtml/default/default/layout/
-app/code/design/adminhtml/default/default/template/* app/code/design/adminhtml/default/default/template/
-app/code/design/frontend/base/default/layout/* app/code/design/frontend/base/default/layout/
-app/code/design/frontend/base/default/template/* app/code/design/frontend/base/default/template/
+app/design/adminhtml/default/default/layout/* app/design/adminhtml/default/default/layout/
+app/design/adminhtml/default/default/template/* app/design/adminhtml/default/default/template/
+app/design/frontend/base/default/layout/* app/design/frontend/base/default/layout/
+app/design/frontend/base/default/template/* app/design/frontend/base/default/template/
 app/etc/modules/* app/etc/modules/
 app/locale/de_DE/* app/locale/de_DE/
 app/locale/en_US/* app/locale/en_US/
