@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>Icepay_IceAdvanced</name>
-    <version>1.2.10</version>
+    <version>1.2.11</version>
     <stability>stable</stability>
     <license>Commercial</license>
     <channel>community</channel>

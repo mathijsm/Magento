@@ -10,7 +10,7 @@ The master branche may not be stable. See the [release list](https://github.com/
 
 Type       | Value
 ---------- | ------------------
-Magento    | 1.5.0.0 - 1.9.2.1
+Magento    | 1.5.0.0 - 1.9.2.2
 
 ## License
 
@@ -32,6 +32,7 @@ If you found a repeatable bug, and troubleshooting tips didn't help, then be sur
 
 Version      | Release date   | Changes
 ------------ | -------------- | ------------------------
+1.2.11       | 06/11/2015     | Compatibility with CE 1.9.2.2 and the [SUPEE-6788](https://magento.com/security/patches/supee-6788) patch. (Thank you Tim)
 1.2.10       | xx/xx/2015     | Better performance on the icepay_transactions table with a high record count. (Thank you Igor)<br>Modern deployment: composer.json and modman files added. (Thank you Tim)<br>Multi-stores will no longer create ERR_0007 (Checksum Error) during checkout. (Thank you Tim)
-1.2.9        | 18/08/2015     | Compatiblity with CE 1.9.2.1 and the [SUPEE-6285](http://merch.docs.magento.com/ce/user_guide/Magento_Community_Edition_User_Guide.html#magento/patch-releases-2015.html) patch.<br>Removed IPCheck for compatibility with the ICEPAY cloud.
+1.2.9        | 18/08/2015     | Compatibility with CE 1.9.2.1 and the [SUPEE-6285](http://merch.docs.magento.com/ce/user_guide/Magento_Community_Edition_User_Guide.html#magento/patch-releases-2015.html) patch.<br>Removed IPCheck for compatibility with the ICEPAY cloud.
 1.2.2        | 13/11/2013     | Initial commit to GitHub on 03/06/2015.
