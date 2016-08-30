@@ -143,6 +143,10 @@ class Icepay_IceCore_Model_Icepay_Postback {
 
     protected function sendMail($currentStatus, $newStatus)
     {
+        if ($currentStatus === $newStatus) {
+            return; //Email was already sent, Do not send email again for postback request
+        }
+
         switch ($currentStatus) {
             case Icepay_IceCore_Model_Config::STATUS_NEW:
                 if ($newStatus == Icepay_IceCore_Model_Config::STATUS_ERROR) {
@@ -154,6 +158,7 @@ class Icepay_IceCore_Model_Icepay_Postback {
             default:
                 $this->order->sendOrderUpdateEmail();
         }
+
     }
 
     protected function saveTransaction($_vars)
