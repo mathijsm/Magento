@@ -1,18 +1,21 @@
 <?php
 
 /**
- *  ICEPAY Core - Postback processing
- *  @version 1.0.1
- *  @author Olaf Abbenhuis
- *  @copyright ICEPAY <www.icepay.com>
- *  
- *  Disclaimer:
- *  The merchant is entitled to change de ICEPAY plug-in code,
- *  any changes will be at merchant's own risk.
- *  Requesting ICEPAY support for a modified plug-in will be
- *  charged in accordance with the standard ICEPAY tariffs.
- * 
+ * ICEPAY Magento payment module
+ *
+ * @license   see LICENSE.md
+ * @source    https://github.com/ICEPAYdev/Magento
+ * @copyright Copyright (c) 2016 ICEPAY B.V.
+ *
+ * Plugin Name: ICEPAY Payment Module
+ * Plugin URI: https://icepay.com/webshop-modules/advanced-online-payment-module-magento/
+ * Description: ICEPAY Payment Module for Magento
+ * Author: ICEPAY
+ * Author URI: https://icepay.com
+ * Version: 1.2.12
+ * License: http://www.gnu.org/licenses/gpl-3.0.html  GNU GENERAL PUBLIC LICENSE
  */
+
 class Icepay_IceCore_Model_Icepay_Postback {
 
     protected $sqlModel;
@@ -33,7 +36,18 @@ class Icepay_IceCore_Model_Icepay_Postback {
             Mage::helper("icecore")->log("No Postback vars");
             die("ICEPAY postback page installed correctly.");
         }
-        $this->_post = $_vars;
+
+        foreach ($this->getPostbackResponseFields() as $obj => $param) {
+            $this->_post->$obj = (isset($_POST[$param])) ? $_POST[$param] : "";
+        }
+
+        if ($this->generateChecksumForPostback() != $this->_post->checksum) {
+            Mage::helper("icecore")->log("Postback: checksum does not match");
+            Mage::app()->getResponse()
+                ->setHeader('HTTP/1.1','403 Forbidden')
+                ->sendResponse();
+            exit;
+        }
 
         if ($_vars['Status'] == Icepay_IceCore_Model_Config::STATUS_VERSION_CHECK) {
             $this->outputVersion($this->validateVersion());
@@ -116,7 +130,7 @@ class Icepay_IceCore_Model_Icepay_Postback {
 
     protected function validateVersion()
     {
-        if ($this->generateChecksumForVersion() != $this->_post["Checksum"])
+        if ($this->generateChecksumForVersion() != $this->_post->checksum)
             return false;
         return true;
     }
@@ -136,10 +150,68 @@ class Icepay_IceCore_Model_Icepay_Postback {
     protected function generateChecksumForVersion()
     {
         return sha1(
-                sprintf("%s|%s|%s|%s", Mage::helper('icecore')->getConfig(Icepay_IceCore_Model_Config::SECRETCODE), Mage::helper('icecore')->getConfig(Icepay_IceCore_Model_Config::MERCHANTID), $this->_post["Status"], substr(strval(time()), 0, 8)
+                sprintf("%s|%s|%s|%s", Mage::helper('icecore')->getConfig(Icepay_IceCore_Model_Config::SECRETCODE), Mage::helper('icecore')->getConfig(Icepay_IceCore_Model_Config::MERCHANTID), $this->_post->status, substr(strval(time()), 0, 8)
                 )
         );
     }
+
+    /**
+     * Return the postback checksum
+     * @access protected
+     * @return string SHA1 encoded
+     */
+    protected function generateChecksumForPostback()
+    {
+        return sha1(
+            sprintf("%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s",
+                Mage::helper('icecore')->getConfig(Icepay_IceCore_Model_Config::SECRETCODE),
+                Mage::helper('icecore')->getConfig(Icepay_IceCore_Model_Config::MERCHANTID),
+                $this->_post->status,
+                $this->_post->statusCode,
+                $this->_post->orderID,
+                $this->_post->paymentID,
+                $this->_post->reference,
+                $this->_post->transactionID,
+                $this->_post->amount,
+                $this->_post->currency,
+                $this->_post->duration,
+                $this->_post->consumerIPAddress
+            )
+        );
+    }
+
+    /**
+     * Returns the postback response parameter names
+     * @access public
+     * @return array
+     */
+    public function getPostbackResponseFields()
+    {
+        return array(
+            //object reference name => post param name
+            "status" => "Status",
+            "statusCode" => "StatusCode",
+            "merchant" => "Merchant",
+            "orderID" => "OrderID",
+            "paymentID" => "PaymentID",
+            "reference" => "Reference",
+            "transactionID" => "TransactionID",
+            "consumerName" => "ConsumerName",
+            "consumerAccountNumber" => "ConsumerAccountNumber",
+            "consumerAddress" => "ConsumerAddress",
+            "consumerHouseNumber" => "ConsumerHouseNumber",
+            "consumerCity" => "ConsumerCity",
+            "consumerCountry" => "ConsumerCountry",
+            "consumerEmail" => "ConsumerEmail",
+            "consumerPhoneNumber" => "ConsumerPhoneNumber",
+            "consumerIPAddress" => "ConsumerIPAddress",
+            "amount" => "Amount",
+            "currency" => "Currency",
+            "duration" => "Duration",
+            "paymentMethod" => "PaymentMethod",
+            "checksum" => "Checksum");
+    }
+
 
     protected function sendMail($currentStatus, $newStatus)
     {

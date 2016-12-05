@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>Icepay_IceAdvanced</name>
-    <version>1.2.11</version>
+    <version>1.2.12</version>
     <stability>stable</stability>
     <license>Commercial</license>
     <channel>community</channel>
@@ -10,8 +10,8 @@
     <description>Enables payments using payment service provider ICEPAY.</description>
     <notes/>
     <authors><author><name>ICEPAY</name><user>ICEPAY_PSP</user><email>info@icepay.com</email></author></authors>
-    <date>2015-08-18</date>
-    <time>21:23:46</time>
+    <date>2016-12-05</date>
+    <time>23:41:00</time>
     <contents/>
     <compatible/>
     <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php><extension><name>soap</name><min/><max/></extension><extension><name>openssl</name><min/><max/></extension></required></dependencies>
