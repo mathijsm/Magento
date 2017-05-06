@@ -237,7 +237,12 @@ class Icepay_IceCore_Helper_Data extends Mage_Core_Helper_Abstract {
 
     public function getTransactionDescription($default)
     {
-        return ($statement = $this->getConfig(Icepay_IceCore_Model_Config::TRANSDESCR)) ? $statement : $default;
+        $data = Mage::getSingleton('checkout/session')->getData('icepay_checkout_session');
+        if ($data && isset($data['icepay_transaction_description'])) {
+            return $data['icepay_transaction_description'];
+        } else {
+            return ($statement = $this->getConfig(Icepay_IceCore_Model_Config::TRANSDESCR)) ? $statement : $default;
+        }
     }
 
     public function formatTotal($number)

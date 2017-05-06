@@ -60,8 +60,8 @@ class Icepay_IceAdvanced_Model_Webservice_Advanced extends Icepay_IceCore_Model_
         $obj->OrderID = $paymentObj->getOrderID();
         $obj->PaymentMethod = $paymentObj->getPaymentMethod();
         $obj->Reference = $paymentObj->getReference();
-        $obj->URLCompleted = '';
-        $obj->URLError = '';
+        $obj->URLCompleted = $this->getSuccessUrl();
+        $obj->URLError = $this->getErrorUrl();
 
         if ($this->isExtendedCheckout($obj->PaymentMethod))
             $obj->XML = $orderObj->getXML();
@@ -76,6 +76,17 @@ class Icepay_IceAdvanced_Model_Webservice_Advanced extends Icepay_IceCore_Model_
 
         return (array) $result;
     }
+
+    private function getSuccessUrl()
+    {
+        return Mage::helper("icecore")->getStoreFrontURL('result');
+    }
+
+    private function getErrorUrl()
+    {
+        return  Mage::helper("icecore")->getStoreFrontURL('result');
+    }
+
 
     /**
      * Checks if paymentmethod requires extended checkout
